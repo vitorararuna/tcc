@@ -1,0 +1,18 @@
+# Configurações específicas do prometheus:
+
+# A cada nova config adicionada, o ctnr do prometheus deve ser reiniciado para refletir as alterações
+
+
+global:
+  scrape_interval: 5s # tempo de coleta de dados
+
+scrape_configs:
+  - job_name: "application_do_vitin"
+    metrics_path: "actuator/prometheus"
+    static_configs: # endereços dos serviços que serão monitorados
+      - targets: [ "192.168.64.1:8081" ] # resgatei ip via 'ifconfig' no terminal, pegando o ip da rede virtual, como se fosse o host.docker.internal [estou usando o racnher]
+        labels:
+          application: "application1"
+    basic_auth:
+      username: 'client'
+      password: 'client'
