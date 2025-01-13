@@ -36,6 +36,7 @@ dependencies {
 	implementation 'de.codecentric:spring-boot-admin-server-ui'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.hazelcast:hazelcast'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
