@@ -1,0 +1,84 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.11'
+	id 'io.spring.dependency-management' version '1.1.6'
+	id "com.github.node-gradle.node" version "7.0.2"
+}
+
+group = 'tcc'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springBootAdminVersion', "3.2.3")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'de.codecentric:spring-boot-admin-starter-server'
+	implementation 'de.codecentric:spring-boot-admin-starter-client'
+	implementation 'de.codecentric:spring-boot-admin-server-ui'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.hazelcast:hazelcast'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'io.micrometer:micrometer-registry-prometheus'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// --- Seção de Frontend ---
+node {
+	version = '18.17.1'
+	download = true
+}
+
+task buildFrontend(type: NpmTask) {
+	workingDir = file("${project.projectDir}")
+	args = ['run', 'build']
+	outputs.dir("build/generated/js")
+}
+
+buildFrontend.dependsOn(npm_install)
+
+tasks.named('processResources') {
+	dependsOn(buildFrontend)
+	doLast {
+		copy {
+			from(buildFrontend.outputs)
+			into("build/classes/java/main/META-INF/spring-boot-admin-server-ui/extensions/custom")
+		}
+	}
+}

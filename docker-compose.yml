@@ -1,0 +1,75 @@
+services:
+  sba_server:
+    build: ./sba_server
+    command: java -jar app.jar
+    ports:
+      - "8080:8080"
+    networks:
+      monitoring:
+        ipv4_address: 172.19.0.2
+    environment:
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_FROM_NUMBER=${TWILIO_FROM_NUMBER}
+      - TWILIO_TO_NUMBER=${TWILIO_TO_NUMBER}
+
+  product_service:
+    build: ./product_service
+    # MUDANÇA CRUCIAL: Apenas executa o .jar
+    command: java -jar app.jar
+    ports:
+      - "2020:2020"
+    networks:
+      monitoring:
+        ipv4_address: 172.19.0.3
+    depends_on:
+      - sba_server
+
+  order_service:
+    build: ./order_service
+    # MUDANÇA CRUCIAL: Apenas executa o .jar
+    command: java -jar app.jar
+    ports:
+      - "4040:4040"
+    networks:
+      monitoring:
+        ipv4_address: 172.19.0.5
+    depends_on:
+      - product_service
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+    depends_on:
+      - sba_server
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:
+
+networks:
+  monitoring:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24

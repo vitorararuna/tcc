@@ -1,0 +1,11 @@
+tableNumber,products,status
+1,"[{""productCode"":1,""quantity"":2},{""productCode"":5,""quantity"":1}]",pending
+2,"[{""productCode"":3,""quantity"":4}]",pending
+3,"[{""productCode"":2,""quantity"":3},{""productCode"":5,""quantity"":1}]",preparing
+4,"[{""productCode"":4,""quantity"":2},{""productCode"":1,""quantity"":1}]",served
+5,"[{""productCode"":6,""quantity"":2}]",pending
+6,"[{""productCode"":1,""quantity"":1},{""productCode"":5,""quantity"":2}]",cancelled
+7,"[{""productCode"":5,""quantity"":3},{""productCode"":2,""quantity"":2}]",pending
+8,"[{""productCode"":3,""quantity"":1}]",preparing
+9,"[{""productCode"":4,""quantity"":1},{""productCode"":6,""quantity"":2}]",served
+10,"[{""productCode"":10,""quantity"":5}]",pending
