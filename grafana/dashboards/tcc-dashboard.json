@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
+  "id": null,
   "links": [],
   "panels": [
     {
@@ -34,7 +34,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -85,7 +85,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "editorMode": "builder",
               "expr": "order_products_total",
@@ -102,7 +102,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "description": "Mostra as 10 combinações mais frequentes.",
           "fieldConfig": {
@@ -165,7 +165,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "description": "Mede a frequência de compra de cada produto em quantidades específicas",
           "fieldConfig": {
@@ -238,7 +238,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "description": "Ver a taxa de vendas em tempo real.\n\n Calcula a taxa por segundo e multiplica por 60 para ter \"por minuto\".",
           "fieldConfig": {
@@ -350,7 +350,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cf24fp8ckqhogd"
+        "uid": "prometheus-ds"
       },
       "description": "Requisições por segundo dos principais endpoints do product_service.",
       "fieldConfig": {
@@ -441,7 +441,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_getProductById_time_seconds_count{job=\"product_service\"}[5m])",
@@ -454,7 +454,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_createProduct_time_seconds_count{job=\"product_service\"}[5m])",
@@ -467,7 +467,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_updateProduct_time_seconds_count{job=\"product_service\"}[5m])",
@@ -480,7 +480,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_deleteProduct_time_seconds_count{job=\"product_service\"}[5m])",
@@ -497,7 +497,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cf24fp8ckqhogd"
+        "uid": "prometheus-ds"
       },
       "description": "Requisições por segundo dos principais endpoints do order_service",
       "fieldConfig": {
@@ -588,7 +588,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_getAllOrders_time_seconds_count{job=\"order_service\"}[5m])",
@@ -601,7 +601,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_getOrderById_time_seconds_count{job=\"order_service\"}[5m])",
@@ -614,7 +614,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_updateOrder_time_seconds_count{job=\"order_service\"}[5m])",
@@ -627,7 +627,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_deleteOrder_time_seconds_count{job=\"order_service\"}[5m])",
@@ -644,7 +644,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cf24fp8ckqhogd"
+        "uid": "prometheus-ds"
       },
       "description": "Calcula a latência média em segundos nos últimos 5 minutos.\n\n---\n\nLatência Média = (Soma de todos os tempos de resposta) / (Número total de requisições).",
       "fieldConfig": {
@@ -735,7 +735,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_getProductById_time_seconds_sum{job=\"product_service\"}[5m]) / rate(endpoint_getProductById_time_seconds_count{job=\"product_service\"}[5m])",
@@ -748,7 +748,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_createProduct_time_seconds_sum{job=\"product_service\"}[5m]) / rate(endpoint_createProduct_time_seconds_count{job=\"product_service\"}[5m])",
@@ -761,7 +761,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_updateProduct_time_seconds_sum{job=\"product_service\"}[5m]) / rate(endpoint_updateProduct_time_seconds_count{job=\"product_service\"}[5m])",
@@ -774,7 +774,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_deleteProduct_time_seconds_sum{job=\"product_service\"}[5m]) / rate(endpoint_deleteProduct_time_seconds_count{job=\"product_service\"}[5m])",
@@ -791,7 +791,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cf24fp8ckqhogd"
+        "uid": "prometheus-ds"
       },
       "description": "Calcula a latência média em segundos nos últimos 5 minutos.\n\n---\n\nLatência Média = (Soma de todos os tempos de resposta) / (Número total de requisições).",
       "fieldConfig": {
@@ -875,7 +875,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_createOrder_time_seconds_sum{job=\"order_service\"}[5m]) / rate(endpoint_createOrder_time_seconds_count{job=\"order_service\"}[5m])",
@@ -888,7 +888,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_getAllOrders_time_seconds_sum{job=\"order_service\"}[5m]) / rate(endpoint_getAllOrders_time_seconds_count{job=\"order_service\"}[5m])",
@@ -901,7 +901,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_getOrderById_time_seconds_sum{job=\"order_service\"}[5m]) / rate(endpoint_getOrderById_time_seconds_count{job=\"order_service\"}[5m])",
@@ -914,7 +914,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_updateOrder_time_seconds_sum{job=\"order_service\"}[5m]) / rate(endpoint_updateOrder_time_seconds_count{job=\"order_service\"}[5m])",
@@ -927,7 +927,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(endpoint_deleteOrder_time_seconds_sum{job=\"order_service\"}[5m]) / rate(endpoint_deleteOrder_time_seconds_count{job=\"order_service\"}[5m])",
@@ -944,7 +944,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cf24fp8ckqhogd"
+        "uid": "prometheus-ds"
       },
       "description": "Contagem total de chamadas aos principais endpoints",
       "fieldConfig": {
@@ -1059,7 +1059,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_createProduct_count_total",
@@ -1072,7 +1072,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_createOrder_count_total",
@@ -1085,7 +1085,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_deleteOrder_count_total",
@@ -1098,7 +1098,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_deleteProduct_count_total",
@@ -1111,7 +1111,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_getAllOrders_count_total",
@@ -1124,7 +1124,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_getAllProducts_count_total",
@@ -1137,7 +1137,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_getOrderById_count_total",
@@ -1150,7 +1150,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_getProductById_count_total",
@@ -1163,7 +1163,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_updateOrder_count_total",
@@ -1176,7 +1176,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "editorMode": "builder",
           "expr": "endpoint_updateProduct_count_total",
@@ -1203,7 +1203,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1256,7 +1256,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "process_uptime_seconds{application=\"$application\", instance=\"$instance\"}",
               "format": "time_series",
@@ -1273,7 +1273,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1332,7 +1332,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "sum(jvm_memory_used_bytes{application=\"$application\", instance=\"$instance\", area=\"heap\"})*100/sum(jvm_memory_max_bytes{application=\"$application\",instance=\"$instance\", area=\"heap\"})",
               "format": "time_series",
@@ -1348,7 +1348,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1407,7 +1407,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "sum(jvm_memory_used_bytes{application=\"$application\", instance=\"$instance\", area=\"nonheap\"})*100/sum(jvm_memory_max_bytes{application=\"$application\",instance=\"$instance\", area=\"nonheap\"})",
               "format": "time_series",
@@ -1423,7 +1423,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1507,7 +1507,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "process_files_open_files{application=\"$application\", instance=\"$instance\"}",
               "format": "time_series",
@@ -1518,7 +1518,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "process_files_max_files{application=\"$application\", instance=\"$instance\"}",
               "format": "time_series",
@@ -1533,7 +1533,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1585,7 +1585,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "process_start_time_seconds{application=\"$application\", instance=\"$instance\"}*1000",
               "format": "time_series",
@@ -1602,7 +1602,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1691,7 +1691,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "system_cpu_usage{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -1702,7 +1702,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "process_cpu_usage{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -1717,7 +1717,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1806,7 +1806,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "system_load_average_1m{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -1817,7 +1817,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "system_cpu_count{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -1846,7 +1846,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -1937,7 +1937,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_memory_used_bytes{instance=\"$instance\", application=\"$application\", id=\"$memory_pool_heap\"}",
               "format": "time_series",
@@ -1948,7 +1948,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_memory_committed_bytes{instance=\"$instance\", application=\"$application\", id=\"$memory_pool_heap\"}",
               "format": "time_series",
@@ -1959,7 +1959,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_memory_max_bytes{instance=\"$instance\", application=\"$application\", id=\"$memory_pool_heap\"}",
               "format": "time_series",
@@ -1974,7 +1974,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -2058,7 +2058,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(jvm_classes_unloaded_classes_total{instance=\"$instance\", application=\"$application\"}[5m])",
               "format": "time_series",
@@ -2073,7 +2073,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -2164,7 +2164,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_memory_used_bytes{instance=\"$instance\", application=\"$application\", id=\"$memory_pool_nonheap\"}",
               "format": "time_series",
@@ -2175,7 +2175,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_memory_committed_bytes{instance=\"$instance\", application=\"$application\", id=\"$memory_pool_nonheap\"}",
               "format": "time_series",
@@ -2186,7 +2186,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_memory_max_bytes{instance=\"$instance\", application=\"$application\", id=\"$memory_pool_nonheap\"}",
               "format": "time_series",
@@ -2201,7 +2201,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {},
@@ -2219,7 +2219,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_classes_loaded_classes{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -2234,7 +2234,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {},
@@ -2252,7 +2252,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_buffer_memory_used_bytes{instance=\"$instance\", application=\"$application\", id=\"mapped\"}",
               "format": "time_series",
@@ -2263,7 +2263,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_buffer_total_capacity_bytes{instance=\"$instance\", application=\"$application\", id=\"mapped\"}",
               "format": "time_series",
@@ -2278,7 +2278,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {},
@@ -2296,7 +2296,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(jvm_gc_memory_allocated_bytes_total{instance=\"$instance\", application=\"$application\"}[5m])",
               "format": "time_series",
@@ -2307,7 +2307,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(jvm_gc_memory_promoted_bytes_total{instance=\"$instance\", application=\"$application\"}[5m])",
               "format": "time_series",
@@ -2322,7 +2322,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {},
@@ -2340,7 +2340,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_buffer_memory_used_bytes{instance=\"$instance\", application=\"$application\", id=\"direct\"}",
               "format": "time_series",
@@ -2351,7 +2351,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_buffer_total_capacity_bytes{instance=\"$instance\", application=\"$application\", id=\"direct\"}",
               "format": "time_series",
@@ -2366,7 +2366,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {},
@@ -2384,7 +2384,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_threads_daemon_threads{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -2395,7 +2395,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_threads_live_threads{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -2406,7 +2406,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "jvm_threads_peak_threads{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -2435,7 +2435,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -2565,7 +2565,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(jvm_gc_pause_seconds_count{instance=\"$instance\", application=\"$application\"}[5m])",
               "format": "time_series",
@@ -2580,7 +2580,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -2710,7 +2710,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(jvm_gc_pause_seconds_sum{instance=\"$instance\", application=\"$application\"}[5m])",
               "format": "time_series",
@@ -2739,7 +2739,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -2791,7 +2791,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -2806,7 +2806,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -2916,7 +2916,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections_active{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -2927,7 +2927,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections_idle{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -2938,7 +2938,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections_pending{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -2953,7 +2953,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3005,7 +3005,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections_timeout_total{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -3020,7 +3020,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3104,7 +3104,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections_creation_seconds_sum{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"} / hikaricp_connections_creation_seconds_count{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -3119,7 +3119,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3203,7 +3203,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections_usage_seconds_sum{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"} / hikaricp_connections_usage_seconds_count{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -3218,7 +3218,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3302,7 +3302,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "hikaricp_connections_acquire_seconds_sum{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"} / hikaricp_connections_acquire_seconds_count{instance=\"$instance\", application=\"$application\", pool=\"$hikaricp\"}",
               "format": "time_series",
@@ -3331,7 +3331,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3415,7 +3415,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(http_server_requests_seconds_count{instance=\"$instance\", application=\"$application\", uri!~\".*actuator.*\"}[5m])",
               "format": "time_series",
@@ -3430,7 +3430,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3518,7 +3518,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(http_server_requests_seconds_sum{instance=\"$instance\", application=\"$application\", exception=\"None\", uri!~\".*actuator.*\"}[5m]) / irate(http_server_requests_seconds_count{instance=\"$instance\", application=\"$application\", exception=\"None\", uri!~\".*actuator.*\"}[5m])",
               "format": "time_series",
@@ -3547,7 +3547,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3599,7 +3599,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "tomcat_global_error_total{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -3614,7 +3614,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3703,7 +3703,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "tomcat_sessions_active_current_sessions{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -3718,7 +3718,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3807,7 +3807,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(tomcat_global_sent_bytes_total{instance=\"$instance\", application=\"$application\"}[5m])",
               "format": "time_series",
@@ -3818,7 +3818,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(tomcat_global_received_bytes_total{instance=\"$instance\", application=\"$application\"}[5m])",
               "format": "time_series",
@@ -3833,7 +3833,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3885,7 +3885,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "tomcat_threads_config_max{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -3900,7 +3900,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -3989,7 +3989,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "tomcat_threads_current_threads{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -4000,7 +4000,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "tomcat_threads_busy_threads{instance=\"$instance\", application=\"$application\"}",
               "format": "time_series",
@@ -4029,7 +4029,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -4120,7 +4120,7 @@
               "alias": "",
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(logback_events_total{instance=\"$instance\", application=\"$application\", level=\"info\"}[5m])",
               "format": "time_series",
@@ -4136,7 +4136,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -4227,7 +4227,7 @@
               "alias": "",
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(logback_events_total{instance=\"$instance\", application=\"$application\", level=\"error\"}[5m])",
               "format": "time_series",
@@ -4243,7 +4243,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -4334,7 +4334,7 @@
               "alias": "",
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(logback_events_total{instance=\"$instance\", application=\"$application\", level=\"warn\"}[5m])",
               "format": "time_series",
@@ -4350,7 +4350,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -4441,7 +4441,7 @@
               "alias": "",
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(logback_events_total{instance=\"$instance\", application=\"$application\", level=\"debug\"}[5m])",
               "format": "time_series",
@@ -4457,7 +4457,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cf24fp8ckqhogd"
+            "uid": "prometheus-ds"
           },
           "fieldConfig": {
             "defaults": {
@@ -4548,7 +4548,7 @@
               "alias": "",
               "datasource": {
                 "type": "prometheus",
-                "uid": "cf24fp8ckqhogd"
+                "uid": "prometheus-ds"
               },
               "expr": "irate(logback_events_total{instance=\"$instance\", application=\"$application\", level=\"trace\"}[5m])",
               "format": "time_series",
@@ -4579,7 +4579,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cf24fp8ckqhogd"
+          "uid": "prometheus-ds"
         },
         "definition": "label_values(application)",
         "includeAll": false,
@@ -4599,7 +4599,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cf24fp8ckqhogd"
+          "uid": "prometheus-ds"
         },
         "definition": "label_values(jvm_classes_loaded_classes{application=\"$application\"}, instance)",
         "includeAll": false,
@@ -4619,7 +4619,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cf24fp8ckqhogd"
+          "uid": "prometheus-ds"
         },
         "definition": "",
         "includeAll": false,
@@ -4639,7 +4639,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cf24fp8ckqhogd"
+          "uid": "prometheus-ds"
         },
         "definition": "",
         "includeAll": true,
@@ -4659,7 +4659,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cf24fp8ckqhogd"
+          "uid": "prometheus-ds"
         },
         "definition": "",
         "includeAll": true,
@@ -4682,5 +4682,5 @@
   "timezone": "",
   "title": "Dashboard Personalizado TCC",
   "uid": "spring_boot_21",
-  "version": 8
+  "version": 0
 }

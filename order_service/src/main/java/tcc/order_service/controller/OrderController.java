@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tcc.order_service.model.Order;
 import tcc.order_service.service.OrderService;
+import tcc.order_service.scheduler.OrderProcessingTask;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,7 @@ public class OrderController {
   private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
   private final MeterRegistry meterRegistry;
+  private final OrderProcessingTask orderProcessingTask;
 
   private final Counter getAllOrdersCounter;
   private final Timer getAllOrdersTimer;
@@ -41,8 +43,9 @@ public class OrderController {
   private final Timer deleteOrderTimer;
 
   @Autowired
-  public OrderController(MeterRegistry meterRegistry) {
+  public OrderController(MeterRegistry meterRegistry, OrderProcessingTask orderProcessingTask) {
     this.meterRegistry = meterRegistry;
+    this.orderProcessingTask = orderProcessingTask;
 
     this.getAllOrdersCounter = meterRegistry.counter("endpoint.getAllOrders.count");
     this.getAllOrdersTimer = meterRegistry.timer("endpoint.getAllOrders.time");
@@ -193,6 +196,39 @@ public class OrderController {
     return delayedOrders.stream()
         .map(this::convertToDto)
         .collect(java.util.stream.Collectors.toList());
+  }
+
+  /**
+   * Endpoint para acionar manualmente a tarefa agendada de verificação de pedidos atrasados.
+   * Permite executar a tarefa sob demanda, além da execução automática a cada 30 segundos.
+   *
+   * @return Mensagem de confirmação da execução
+   */
+  @PostMapping("/trigger-scheduled-task")
+  public ResponseEntity<Map<String, String>> triggerScheduledTask() {
+    logger.info("Received request to manually trigger scheduled task: processPendingOrders");
+
+    try {
+      // Aciona manualmente a tarefa agendada
+      orderProcessingTask.processPendingOrders();
+
+      Map<String, String> response = Map.of(
+          "status", "success",
+          "message", "Tarefa agendada 'processPendingOrders' acionada com sucesso"
+      );
+
+      logger.info("Scheduled task triggered successfully");
+      return ResponseEntity.ok(response);
+    } catch (Exception e) {
+      logger.error("Error triggering scheduled task: {}", e.getMessage(), e);
+
+      Map<String, String> response = Map.of(
+          "status", "error",
+          "message", "Erro ao acionar tarefa: " + e.getMessage()
+      );
+
+      return ResponseEntity.internalServerError().body(response);
+    }
   }
 
   private tcc.order_service.dto.DelayedOrderDTO convertToDto(Order order) {

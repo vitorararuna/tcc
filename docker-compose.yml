@@ -12,6 +12,7 @@ services:
       - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
       - TWILIO_FROM_NUMBER=${TWILIO_FROM_NUMBER}
       - TWILIO_TO_NUMBER=${TWILIO_TO_NUMBER}
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
 
   product_service:
     build: ./product_service
@@ -46,7 +47,8 @@ services:
     ports:
       - "9090:9090"
     networks:
-      - monitoring
+      monitoring:
+        ipv4_address: 172.19.0.4
     depends_on:
       - sba_server
 
@@ -58,6 +60,11 @@ services:
       - prometheus
     networks:
       - monitoring
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=
+      - GF_USERS_ALLOW_SIGN_UP=false
     volumes:
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
       - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards

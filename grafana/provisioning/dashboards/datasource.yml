@@ -1,8 +1,0 @@
-apiVersion: 1
-
-datasources:
-  - name: Prometheus
-    type: prometheus
-    access: proxy
-    url: 172.19.0.4:9090
-    isDefault: true
