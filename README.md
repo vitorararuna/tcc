@@ -193,3 +193,4 @@ tcc/
 * Todos os serviços são compilados automaticamente pelo script `start_services.sh`.
 * O dashboard do Grafana é provisionado automaticamente e não requer configuração manual.
 * As notificações (Twilio/Discord) são completamente opcionais e não impedem o funcionamento do projeto.
+* A monografia também foi disponibilizada no raiz do projeto para os interessados.
